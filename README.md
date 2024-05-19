@@ -51,11 +51,11 @@ This is because there is no endpoint at '/'
 
 ## API Documentation
 
-The API documentation provides details about the endpoints, request and response formats, and authentication mechanisms. You can find the API documentation hosted on postman.
+The API documentation provides details about the endpoints, request and response formats. You can find the API documentation hosted on postman.
 
 Here's how you can access the API documentation:
 
-3. Navigate to `https://documenter.getpostman.com/view/34873005/2sA3JNaL31`
+1. Navigate to `https://documenter.getpostman.com/view/34873005/2sA3QmCuTe`
 
 ## Run Test Cases
 
