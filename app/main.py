@@ -6,7 +6,7 @@ from cryptography.fernet import Fernet
 app = FastAPI()
 
 # Directory to store uploaded files
-UPLOAD_DIR = Path(r"C:\Upload\uploaded_files")
+UPLOAD_DIR = Path(r".\uploaded_files")
 
 # Create the upload directory if it doesn't exist
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
@@ -45,18 +45,18 @@ def decrypt_file(input_file_path, output_file_path):
 async def upload_file(file: UploadFile = File(...)):
     try:
         # Save the uploaded file
-        print("1")
+
         file_path = UPLOAD_DIR / file.filename
         with open(file_path, "wb") as buffer:
             buffer.write(await file.read())
-        print("2")
+
         # Encrypt the file
         encrypted_file_path = file_path.with_suffix(".enc")
         encrypt_file(file_path, encrypted_file_path)
-        print("3")
+
         # Delete the original file after encryption
         os.remove(file_path)
-        print("4")
+
         # Return the public path to the encrypted file
         public_path = f"/files/{file.filename}.enc"
         return {"file_path": public_path}
